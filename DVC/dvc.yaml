@@ -1,0 +1,32 @@
+stages:
+  # fetch:
+  #   cmd: python scripts/fetch_data.py
+  #   deps:
+  #     - scripts/fetch_data.py
+  #   outs:
+  #     - data/raw_weather_data.json
+
+  # extract:
+  #   cmd: python scripts/extract_data.py
+  #   deps:
+  #     - scripts/extract_data.py
+  #     - data/raw_weather_data.json
+  #   outs:
+  #     - data/raw_weather_data.csv
+
+  # preprocess:
+  #   cmd: python scripts/preprocess_data.py
+  #   deps:
+  #     - scripts/preprocess_data.py
+  #     - data/raw_weather_data.csv
+  #   outs:
+  #     - data/processed_weather_data.csv
+
+  train:
+    cmd: python scripts/train.py
+    deps:
+      - scripts/train.py
+      - data/processed_weather_data.csv
+    outs:
+      - models/linear_reg_model.pkl
+      - report/metrics.json

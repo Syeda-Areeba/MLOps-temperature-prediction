@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+  template:
+    metadata:
+      labels:
+        app: mongodb
+    spec:
+      containers:
+      - name: database
+        image: bitnami/mongodb:latest
+        ports:
+        - containerPort: 27017
+      #   volumeMounts:
+      #   - mountPath: /data/db    # Mount path inside the container
+      #     name: mongodb-data     # Name of the volume (must match the one in volumes section)
+      # volumes:
+      # - name: mongodb-data  # Define the volume by the same name as in volumeMounts
+      #   persistentVolumeClaim:
+      #     claimName: mongodb-data   # The PVC that will back this volume
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+spec:
+  selector:
+    app: mongodb  # This should match the label in the deployment
+  ports:
+    - protocol: TCP
+      port: 27017  # The port on which the MongoDB service will be exposed
+      targetPort: 27017  # The port inside the container where MongoDB is listening
+  clusterIP: None  # This makes the service headless, allowing direct communication with pods (optional)

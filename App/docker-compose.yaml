@@ -1,0 +1,25 @@
+# version: '3.8'
+
+services:
+  app:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: syedaareeba/mlops_project:latest
+    container_name: app
+    ports:
+      - '5000:5000' # Exposes the app on port 5000
+    # environment:
+    #   - MONGO_URI=mongodb://database:27017/weather_app
+    depends_on:
+      - database # Ensures the database service starts before the app
+
+  database:
+    image: bitnami/mongodb:latest
+    container_name: database
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./db_data:/data/db
+    # restart: always
+

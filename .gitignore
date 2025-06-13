@@ -1,0 +1,10 @@
+logs/
+dags/__pycache__
+DVC/scripts/.env
+DVC/local_storage/
+DVC/mlops-project-443516-8b62f89edebd.json
+DVC/__pycache__
+DVC/scripts/__pycache__
+DVC/scripts/.env
+App/__pycache__
+App/.pytest_cache

@@ -1,0 +1,39 @@
+name: CD Pipeline
+
+on:
+  push:
+    branches:
+      - prod  # Trigger the pipeline on merging to the prod branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: start minikube
+      id: minikube
+      uses: medyagh/setup-minikube@latest
+
+    - name: Start Minikube cluster
+      run: |
+        minikube start --driver=docker
+
+    - name: Set up Kubernetes config
+      run: |
+        kubectl config use-context minikube
+
+    - name: Deploy MongoDB
+      run: |
+        kubectl apply -f k8s/database.yaml
+
+    - name: Deploy Frontend and Backend Apps
+      run: |
+        kubectl apply -f k8s/app.yaml
+
+    - name: Verify Deployment Status
+      run: |
+        kubectl get pods
+        kubectl get services

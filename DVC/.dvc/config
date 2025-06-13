@@ -1,0 +1,10 @@
+[core]
+    remote = drive
+    no_scm = true
+    autostage = true
+['remote "local_remote"']
+    url = ../local_storage
+['remote "drive"']
+    url = gdrive://1Szi4KggNMI-ARQoWD8nWPVePUZpTJA89
+    gdrive_use_service_account = true
+    gdrive_acknowledge_abuse = true

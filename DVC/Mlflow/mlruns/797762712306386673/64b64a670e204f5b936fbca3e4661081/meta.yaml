@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/797762712306386673/64b64a670e204f5b936fbca3e4661081/artifacts
+end_time: 1733425528468
+entry_point_name: ''
+experiment_id: '797762712306386673'
+lifecycle_stage: active
+run_id: 64b64a670e204f5b936fbca3e4661081
+run_name: bouncy-seal-111
+run_uuid: 64b64a670e204f5b936fbca3e4661081
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1733425505055
+status: 3
+tags: []
+user_id: Areeba

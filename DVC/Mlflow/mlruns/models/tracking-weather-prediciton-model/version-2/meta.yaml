@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1733425576855
+current_stage: None
+description: ''
+last_updated_timestamp: 1733425576855
+name: tracking-weather-prediciton-model
+run_id: f709ba6867d5463980700609987a02c5
+run_link: ''
+source: mlflow-artifacts:/797762712306386673/f709ba6867d5463980700609987a02c5/artifacts/weather_model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/797762712306386673/f709ba6867d5463980700609987a02c5/artifacts/weather_model
+user_id: null
+version: 2

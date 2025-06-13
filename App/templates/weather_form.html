@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='weather_form.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Temperature Prediction</h1>
+        <form action="/predict" method="post">
+            <label for="humidity">Humidity (%):</label>
+            <input type="number" id="humidity" name="humidity" min="0" max="100" step="0.1" required><br><br>
+
+            <label for="wind_speed">Wind Speed (kph):</label>
+            <input type="number" id="wind_speed" name="wind_speed" min="0" step="0.1" required><br><br>
+
+            <label for="weather_condition">Weather Condition:</label>
+            <select id="weather_condition" name="weather_condition" required>
+                <option value="0">Clear</option>
+                <option value="1">Cloudy</option>
+                <option value="2">Rain</option>
+                <option value="3">Snow</option>
+                <!-- Add more as per encoded dataset -->
+            </select><br><br>
+
+            <label for="hour">Hour (0-23):</label>
+            <input type="number" id="hour" name="hour" min="0" max="23" required><br><br>
+
+            <label for="day">Day of the Week (0=Monday, 6=Sunday):</label>
+            <input type="number" id="day" name="day" min="0" max="6" required><br><br>
+
+            <label for="month">Month (1-12):</label>
+            <input type="number" id="month" name="month" min="1" max="12" required><br><br>
+
+            <label for="day_of_year">Day of the Year (1-365):</label>
+            <input type="number" id="day_of_year" name="day_of_year" min="1" max="365" required><br><br>
+
+            <button type="submit">Predict Temperature</button>
+        </form>
+    </div>
+</body>
+</html>
