@@ -8,3 +8,4 @@ DVC/scripts/__pycache__
 DVC/scripts/.env
 App/__pycache__
 App/.pytest_cache
+App/db_data/
